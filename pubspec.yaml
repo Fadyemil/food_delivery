@@ -10,9 +10,12 @@ environment:
 dependencies:
   carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.6
+  device_preview: ^1.2.0
   flutter:
     sdk: flutter
+  flutter_rating_bar: ^4.0.1
   flutter_screenutil: ^5.9.3
+  get: ^4.6.6
   smooth_page_indicator: ^1.2.0+3
 
 dev_dependencies:
