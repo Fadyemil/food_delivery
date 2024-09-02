@@ -31,7 +31,7 @@ class _MostMealState extends State<MostMeal> {
                 imageContainer(index: index),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: deatilsMeal(index: index),
+                  child: DetailsMeal(index: index),
                 ),
               ],
             );
