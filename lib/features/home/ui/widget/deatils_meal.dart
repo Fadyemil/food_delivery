@@ -60,7 +60,7 @@ class DetailsMeal extends StatelessWidget {
               SmallText(data: 'comments'),
             ],
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 15.h),
           Row(
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

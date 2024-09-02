@@ -20,6 +20,8 @@ class SmallText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontSize: size.sp,
         color: color,
