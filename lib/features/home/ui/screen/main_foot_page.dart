@@ -10,14 +10,12 @@ class MainFootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const BuildAppBarMainFootPage(),
-              SizedBox(height: 16.h),
-              const MostMeal(),
-            ],
-          ),
+        body: Column(
+          children: [
+            const BuildAppBarMainFootPage(),
+            SizedBox(height: 16.h),
+            const MostMeal(),
+          ],
         ),
       ),
     );
