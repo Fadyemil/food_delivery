@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/core/helpers/extensions.dart';
 import 'package:food_delivery_app/core/utils/colors.dart';
+import 'package:food_delivery_app/features/home/ui/screen/populer_food_details.dart';
 import 'package:food_delivery_app/features/home/ui/widget/deatils_meal.dart';
 import 'package:food_delivery_app/features/home/ui/widget/imageContainer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -26,14 +28,19 @@ class _MostMealState extends State<MostMeal> {
           carouselController: _carouselController,
           itemCount: 5,
           itemBuilder: (context, index, realIndex) {
-            return Stack(
-              children: [
-                imageContainer(index: index),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: DetailsMeal(index: index),
-                ),
-              ],
+            return GestureDetector(
+              onTap: () {
+                context.push(PopulerFoodDetails());
+              },
+              child: Stack(
+                children: [
+                  imageContainer(index: index),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: DetailsMeal(index: index),
+                  ),
+                ],
+              ),
             );
           },
           options: CarouselOptions(
