@@ -10,18 +10,19 @@ class SmallText extends StatelessWidget {
     this.color = const Color(0xFFccc7c5),
     this.size = 12,
     this.height = 1.2,
+    this.overflowText = true,
   });
   final String data;
   Color? color;
   double size;
   double height;
-
+  bool overflowText;
   @override
   Widget build(BuildContext context) {
     return Text(
       data,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
+      maxLines: overflowText ? 1 : null,
+      overflow: overflowText ? TextOverflow.ellipsis : null,
       style: TextStyle(
         fontSize: size.sp,
         color: color,
