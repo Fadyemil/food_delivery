@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
+import 'package:food_delivery_app/core/utils/app_constants.dart';
 
 class imageContainer extends StatelessWidget {
   const imageContainer({
     super.key,
     required this.index,
+    required this.productModel,
   });
   final int index;
+  final Products productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,9 @@ class imageContainer extends StatelessWidget {
         color: index.isEven ? Color(0xff36c5df) : Color(0xff9294cc),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage('assets/image/food0.png'),
+          image: NetworkImage(AppConstants.baseUrl +
+              "uploads/" +
+              productModel.img!),
         ),
       ),
     );
