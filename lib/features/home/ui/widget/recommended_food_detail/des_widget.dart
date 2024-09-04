@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/exandable_text_widget.dart';
 
 class DesWidget extends StatelessWidget {
   const DesWidget({
     super.key,
+    required this.products,
   });
-
+  final Products products;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +20,7 @@ class DesWidget extends StatelessWidget {
         ),
         color: Colors.white,
       ),
-      child: const ExpandableTextWidget(
-          text:
-              "For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike default C# VSCode's Monokai, this is an actual, perfect and identical copy of the loved by all Sublime Text's theme. It's name is Sublime Monokai.While I put special focus on making it identical specifically for C#, it is also close to identical in the case of C, C++ and Python. For other languages like Javascript, Ruby, Java, etc, it's not guaranteed to be 100% identical (or maybe yes, I didn't tested it), but it'll work anyway as just another Monokai theme :) Language's identicality support For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike default C# VSCode's Monokai, this is an actual, perfect and identical copy of the loved by all Sublime Text's theme. It's name is Sublime Monokai.While I put special focus on making it identical specifically for C#, it is also close to identical in the case of C, C++ and Python. For other languages like Javascript, Ruby, Java, etc, it's not guaranteed to be 100% identical (or maybe yes, I didn't tested it), but it'll work anyway as just another Monokai theme :) Language's identicality suppor For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike For C#, this theme is exactly the same Monokai's theme of Sublime Text but for Visual Studio Code instead. Unlike default C# VSCode's Monokai, this is an actual, perfect and identical copy of the loved by all Sublime Text's theme. It's name is Sublime Monokai.While I put special focus on making it identical specifically for C#, it is also close to identical in the case of C, C++ and Python. For other languages like Javascript, Ruby, Java, etc, it's not guaranteed to be 100% identical (or maybe yes, I didn't tested it), but it'll work anyway as just another Monokai theme :) Language's identicality suppor"),
+      child: ExpandableTextWidget(text: products.description!),
     );
   }
 }

@@ -3,11 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/core/utils/colors.dart';
 import 'package:food_delivery_app/core/widget/app_icon.dart';
 import 'package:food_delivery_app/core/widget/big_text.dart';
+import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
 
 class BottomBarRecoFoodDetails extends StatelessWidget {
   const BottomBarRecoFoodDetails({
     super.key,
+    required this.products,
   });
+  final Products products;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class BottomBarRecoFoodDetails extends StatelessWidget {
                 iconColor: Colors.white,
               ),
               BigText(
-                data: '\$12.88' + ' X ' + ' 0 ',
+                data: '\$ ${products.price} ' + ' X ' + ' 0 ',
                 color: AppColors.mainBlackColor,
               ),
               AppIcon(

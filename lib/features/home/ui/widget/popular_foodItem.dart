@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_delivery_app/core/helpers/extensions.dart';
+// import 'package:food_delivery_app/core/helpers/extensions.dart';
+import 'package:food_delivery_app/core/utils/app_constants.dart';
 import 'package:food_delivery_app/core/utils/colors.dart';
 import 'package:food_delivery_app/core/widget/big_text.dart';
 import 'package:food_delivery_app/core/widget/icon_and_text.dart';
 import 'package:food_delivery_app/core/widget/small_text.dart';
+import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
 import 'package:food_delivery_app/features/home/ui/screen/recommended_food_detail.dart';
+import 'package:get/get.dart';
 
 class PopularFoodItem extends StatelessWidget {
-  const PopularFoodItem({super.key});
+  const PopularFoodItem({super.key, required this.products});
+  final Products products;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(RecommendedFoodDetail());
+        Get.to(
+            RecommendedFoodDetail(
+              products: products,
+            ),
+            transition: Transition.leftToRight);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -32,8 +40,9 @@ class PopularFoodItem extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.r),
                   color: Colors.white38,
-                  image: const DecorationImage(
-                    image: AssetImage('assets/image/food0.png'),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        AppConstants.baseUrl + "uploads/" + products.img!),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -45,11 +54,9 @@ class PopularFoodItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BigText(data: ' title for titl and jbkjbkjbk  khb k '),
+                  BigText(data: products.name!),
                   SizedBox(height: 4.h),
-                  SmallText(
-                      data:
-                          'description for titl and  kn  gvgv b jgg  drxfgggxgfbv  '),
+                  SmallText(data: (products.description!)),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
