@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/bar_bottom_details_food_page.dart';
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/bar_food_details.dart';
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/details_populer_food.dart';
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/image_food.dart';
 
 class PopulerFoodDetails extends StatelessWidget {
-  const PopulerFoodDetails({super.key});
+  const PopulerFoodDetails({super.key, required this.products});
+  final Products products;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +16,10 @@ class PopulerFoodDetails extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          const Positioned(
+          Positioned(
             left: 0,
             right: 0,
-            child: imagefood(),
+            child: imagefood(products: products),
           ),
           Positioned(
             top: 45.h,
@@ -30,7 +32,9 @@ class PopulerFoodDetails extends StatelessWidget {
             left: 0,
             right: 0,
             bottom: 0,
-            child: DetailsPopulerFood(),
+            child: DetailsPopulerFood(
+              products: products,
+            ),
           )
         ],
       ),
