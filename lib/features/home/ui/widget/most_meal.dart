@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:food_delivery_app/core/helpers/extensions.dart';
+import 'package:food_delivery_app/core/routes/route_helper.dart';
 import 'package:food_delivery_app/features/home/logic/controllers/popular_product_controller.dart';
 // import 'package:food_delivery_app/core/helpers/extensions.dart';
 import 'package:food_delivery_app/core/utils/colors.dart';
-import 'package:food_delivery_app/features/home/ui/screen/populer_food_details.dart';
+// import 'package:food_delivery_app/features/home/ui/screen/populer_food_details.dart';
 import 'package:food_delivery_app/features/home/ui/widget/deatils_meal.dart';
 import 'package:food_delivery_app/features/home/ui/widget/imageContainer.dart';
 import 'package:get/get.dart';
@@ -33,11 +35,9 @@ class _MostMealState extends State<MostMeal> {
             itemBuilder: (context, index, realIndex) {
               return GestureDetector(
                 onTap: () {
-                  Get.to(
-                      PopulerFoodDetails(
-                        products: popularProducts.popularProductList[index],
-                      ),
-                      transition: Transition.leftToRight);
+                  Get.toNamed(RouteHelper.popularFoodDetail, arguments: {
+                    'products': popularProducts.popularProductList[index],
+                  });
                 },
                 child: Stack(
                   children: [

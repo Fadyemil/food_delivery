@@ -1,3 +1,5 @@
+// populer_food_details.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/features/home/data/models/popular_product_Model.dart';
@@ -7,8 +9,12 @@ import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.da
 import 'package:food_delivery_app/features/home/ui/widget/populer_food_detils.dart/image_food.dart';
 
 class PopulerFoodDetails extends StatelessWidget {
-  const PopulerFoodDetails({super.key, required this.products});
   final Products products;
+
+  const PopulerFoodDetails({
+    Key? key,
+    required this.products, // Ensure 'products' is a required named parameter
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +41,12 @@ class PopulerFoodDetails extends StatelessWidget {
             child: DetailsPopulerFood(
               products: products,
             ),
-          )
+          ),
         ],
       ),
-      bottomNavigationBar: BarBottomDetailsFoodPage(),
+      bottomNavigationBar: BarBottomDetailsFoodPage(
+        product: products,
+      ),
     );
   }
 }
