@@ -86,10 +86,12 @@ class PopularProductController extends GetxController {
     // if (quantity > 0) {
       _cart.addItem(product, quantity);
       quantity = 0;
+
       _inCartItems = _cart.getQuantity(product);
       _cart.items.forEach((key, value) {
         log("addItem id this is : ${value.id} this quantity is : ${value.quantity}");
       });
+      update();
     /*} else {
       Get.snackbar(
         'item count',
@@ -98,5 +100,9 @@ class PopularProductController extends GetxController {
         colorText: Colors.white,
       );
     }*/
+  }
+
+  int get totalItems{
+    return _cart.totoalItems;
   }
 }
