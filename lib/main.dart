@@ -4,6 +4,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery_app/core/routes/route_helper.dart';
+import 'package:food_delivery_app/features/home/logic/controllers/cart_controllers.dart';
+// import 'package:food_delivery_app/features/home/data/repository/cart_repo.dart';
+// import 'package:food_delivery_app/features/home/logic/controllers/cart_controllers.dart';
+// import 'package:food_delivery_app/features/home/logic/controllers/cart_controllers.dart';
 import 'package:food_delivery_app/features/home/logic/controllers/popular_product_controller.dart';
 import 'package:food_delivery_app/features/home/logic/controllers/recommended_product_controller.dart';
 import 'package:food_delivery_app/features/home/ui/screen/main_foot_page.dart';
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommenedProductList();
+    Get.create<CartControllers>(() => CartControllers(cartRepo: Get.find()));
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
@@ -44,6 +49,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const MainFootPage(),
         initialRoute: RouteHelper.initial,
+        getPages: RouteHelper.routes,
       ),
     );
   }
