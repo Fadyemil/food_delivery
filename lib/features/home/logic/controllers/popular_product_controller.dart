@@ -60,13 +60,16 @@ class PopularProductController extends GetxController {
         backgroundColor: AppColors.mainColor,
         colorText: Colors.white,
       );
+      if (_inCartItems > 0) {
+        this.quantity = -_inCartItems;
+        return this.quantity;
+      }
       return 0;
     } else {
       return quantity;
     }
   }
 
-  
   void initProduct({required CartControllers cart, Products? product}) {
     quantity = 0;
     _inCartItems = 0;
@@ -84,14 +87,14 @@ class PopularProductController extends GetxController {
 
   void addItem(Products product) {
     // if (quantity > 0) {
-      _cart.addItem(product, quantity);
-      quantity = 0;
+    _cart.addItem(product, quantity);
+    quantity = 0;
 
-      _inCartItems = _cart.getQuantity(product);
-      _cart.items.forEach((key, value) {
-        log("addItem id this is : ${value.id} this quantity is : ${value.quantity}");
-      });
-      update();
+    _inCartItems = _cart.getQuantity(product);
+    _cart.items.forEach((key, value) {
+      log("addItem id this is : ${value.id} this quantity is : ${value.quantity}");
+    });
+    update();
     /*} else {
       Get.snackbar(
         'item count',
@@ -102,7 +105,7 @@ class PopularProductController extends GetxController {
     }*/
   }
 
-  int get totalItems{
+  int get totalItems {
     return _cart.totoalItems;
   }
 }
