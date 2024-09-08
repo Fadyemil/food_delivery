@@ -6,6 +6,7 @@ import 'package:food_delivery_app/core/utils/colors.dart';
 import 'package:food_delivery_app/core/widget/app_icon.dart';
 import 'package:food_delivery_app/core/widget/big_text.dart';
 import 'package:food_delivery_app/features/home/logic/controllers/popular_product_controller.dart';
+import 'package:food_delivery_app/features/home/ui/screen/cart_page.dart';
 import 'package:get/get.dart';
 
 class BarFoodDetails extends StatelessWidget {
@@ -27,7 +28,13 @@ class BarFoodDetails extends StatelessWidget {
         GetBuilder<PopularProductController>(builder: (controller) {
           return Stack(
             children: [
-              AppIcon(icon: Icons.shopping_cart_outlined),
+              AppIcon(
+                  onPressed: () {
+                    context.push(
+                      CartPage(),
+                    );
+                  },
+                  icon: Icons.shopping_cart_outlined),
               if (Get.find<PopularProductController>().totalItems >= 1)
                 Positioned(
                     right: 0,

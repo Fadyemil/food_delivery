@@ -102,12 +102,17 @@ class CartControllers extends GetxController {
     return 0; // Return 0 if the product doesn't exist in the cart
   }
 
-   int get totoalItems{
+  int get totoalItems {
     var totoalQuantity = 0;
     _items.forEach((key, value) {
       totoalQuantity += value.quantity!;
     });
     return totoalQuantity;
-   }
+  }
 
+  List<CartModel> get getItems {
+    return _items.entries.map((e) {
+      return e.value;
+    }).toList();
+  }
 }
